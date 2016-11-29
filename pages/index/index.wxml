@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="articleCon" wx:for="{{articleList}}" wx:key="list">
+  
+  <view bindtouchstart="articleTouchstart" bindtouchmove="articleTouchmove" bindtap="articleTap" data-id="{{index}}" class="article" style="{{item.view.style}}">
+    <image class="article-img" src="{{item.image}}" />
+    <view class="article-content">
+      <view>{{item.title}}</view>
+      <view>{{item.brief}}</view>
+      <view data-id="{{index}}" catchtap="articleLikeTap" style="{{item.view.likeStyle}}" class="article-like">喜欢</view>
+    </view>
+  </view>
+
+  <view class="articleOp">
+    操作区
+  </view>
+</view>
