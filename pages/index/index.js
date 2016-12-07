@@ -27,7 +27,9 @@ Page({
         image:"http://pic.4j4j.cn/upload/pic/20130815/31e652fe2d.jpg"
       }
     ];
-
+    var str1 = '{ "name": "cxh", "sex": "man" }'; 
+    var obj = JSON.parse(str1);
+    console.log(obj);
     that.setData({
       articleList:articleList
     });
@@ -48,10 +50,10 @@ Page({
     var that = this
     var temList = that.data.articleList
     var idx = e.currentTarget.dataset.id
-    var view = temList[idx].view
-    view = typeof(view) == 'undefined' ? {} : view
-    view.likeStyle="color: red;"
-    temList[idx].view = view
+    var style = temList[idx].style
+    style = typeof(style) == 'undefined' ? {} : style
+    style.likColor="color: red;"
+    temList[idx].style = style
     that.setData({
       articleList:temList
     });
@@ -63,11 +65,10 @@ Page({
     var that = this
     var temList = that.data.articleList
     var idx = e.currentTarget.dataset.id
-    var view = temList[idx].view
-    view = typeof(view) == 'undefined' ? {} : view
-    view.style = typeof(view.style) == 'undefined' ? "" : view.style 
-    view.style+="left: "+100+"px;"
-    temList[idx].view = view
+    var style = temList[idx].style
+    style = typeof(style) == 'undefined' ? {} : style
+    style.left = e.target.offsetLeft
+    temList[idx].style = style
     that.setData({
       articleList:temList
     });
